@@ -34,6 +34,14 @@ Original idea: an interactive, real-time(ish) map showing this flow data.
 - This is arguably a *different product* (real estate / personal finance
   audience) than the civic-engagement angle, but could share a data layer.
 
+## Research Questions to Answer
+1. How much of the average product ends up as waste in some way? Broken down
+   by type?
+2. What are the categories of waste?
+3. Where do we find data on imports and domestically generated products?
+4. Where do we get information and data about how each
+   community/neighborhood/city/state/country handles their waste?
+
 ## Open Questions / Things to Resolve Later
 - Data availability: waste/disposal data (EPA TRI, LMOP, state agencies) is
   more accessible than "what comes in" / consumption data — likely the
