@@ -42,6 +42,14 @@ Original idea: an interactive, real-time(ish) map showing this flow data.
 4. Where do we get information and data about how each
    community/neighborhood/city/state/country handles their waste?
 
+## Decisions Made
+- **Household granularity:** Real-time, household-level tracking is off the
+  table (requires expensive IoT/RFID infrastructure and creates privacy/legal
+  exposure). Instead, generalize at the household level — aggregate data to
+  census tract or neighborhood scale, which is sufficient for civic impact and
+  sidesteps CPRA liability. This mirrors the approach used by CoolClimate
+  (UC Berkeley).
+
 ## Open Questions / Things to Resolve Later
 - Data availability: waste/disposal data (EPA TRI, LMOP, state agencies) is
   more accessible than "what comes in" / consumption data — likely the
