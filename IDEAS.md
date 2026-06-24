@@ -65,6 +65,23 @@ Original idea: an interactive, real-time(ish) map showing this flow data.
 **Recommended starting point:** USA Trade Online + BTS FAF — free, port-level
 geographic resolution, no IoT infrastructure required.
 
+### Sewage / Wastewater Data
+**Free / Government**
+- **EPA ECHO Database** (echo.epa.gov) — facilities with NPDES permits
+  (all municipal wastewater treatment plants) report monthly discharge volumes.
+  Free API with facility lat/long, meaning it maps directly into a geographic
+  visualization layer with minimal transformation. Most granular and regularly
+  updated source.
+- **EPA Clean Watersheds Needs Survey (CWNS)** — tracks capacity and flow of
+  publicly owned treatment works (POTWs) nationwide. Conducted every 4 years;
+  includes volume processed by facility and state.
+- **USGS Water Use Data** — water use estimates every 5 years by county,
+  including public supply and wastewater return flows. Free, county-level
+  geographic resolution.
+
+**Context:** EPA estimates the US processes ~34 billion gallons of wastewater
+per day across ~16,000 treatment plants. ECHO breaks this down by facility.
+
 ## Research Questions to Answer
 1. How much of the average product ends up as waste in some way? Broken down
    by type?
