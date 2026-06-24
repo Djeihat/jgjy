@@ -32,3 +32,39 @@
 
 **Context:** EPA estimates the US processes ~34 billion gallons of wastewater
 per day across ~16,000 treatment plants. ECHO breaks this down by facility.
+
+## Food Waste
+
+- **EPA Food Waste Hierarchy** — framework and national estimates for food
+  waste generation and diversion by sector (farms, retail, households).
+  Free, but high-level rather than granular geographic data.
+- **ReFED** (refed.org) — the most detailed public estimates of where US food
+  waste originates, broken down by sector and solution pathway. Publishes an
+  annual Insights Engine with state-level data. Free to access.
+
+**Context:** Food is the single largest category of US municipal landfill waste
+by weight. ReFED estimates ~80 million tons of food goes to waste annually.
+
+## Construction & Demolition (C&D) Waste
+
+- **EPA C&D Materials** — national estimates of C&D waste generation and
+  management. Data is limited and largely modeled rather than directly
+  measured; state agencies vary widely in what they track.
+- **State solid waste reports** — some states (California, Oregon) track C&D
+  separately in annual waste characterization studies.
+
+**Context:** C&D waste accounts for roughly 40% of total US solid waste by
+weight but is massively underreported in public datasets. Treat any figures
+here as estimates.
+
+## E-Waste
+
+- **EPA Sustainable Materials Management (SMM) Electronics Challenge** —
+  voluntary program tracking electronics refurbishment and recycling. Coverage
+  is incomplete; participation is opt-in.
+- **UN Global E-waste Monitor** — best available global estimates of e-waste
+  generation by country. Free reports published every few years.
+
+**Context:** E-waste is almost entirely untracked in US public data at the
+local level. No comprehensive domestic tracking system exists. Figures are
+estimates only.
