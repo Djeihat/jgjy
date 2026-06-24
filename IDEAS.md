@@ -46,8 +46,9 @@ Original idea: an interactive, real-time(ish) map showing this flow data.
 - **US Customs Inbound Ocean Manifests** — Technically public domain via FOIA,
   but raw feed costs ~$100/day from CBP directly (what commercial providers
   resell).
-- **USDA Foreign Agricultural Service** — Import/export data for food and
-  agricultural commodities specifically. Highly relevant for waste/materials.
+- **USDA Foreign Agricultural Service — GATS** (apps.fas.usda.gov/gats) —
+  Import/export data for food and agricultural commodities. Free public access
+  with a free API; query by commodity, country, and date range.
 
 **Low-Cost / Freemium**
 - **UN Comtrade** (comtrade.un.org) — Annual country-level trade data by
