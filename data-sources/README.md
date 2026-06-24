@@ -10,3 +10,4 @@
 | [land-use.md](land-use.md) | NLCD, USDA NASS, zoning, transportation networks |
 | [socioeconomic.md](socioeconomic.md) | Income, poverty, environmental justice (EJSCREEN, CalEnviroScreen) |
 | [climate.md](climate.md) | NOAA, FEMA flood hazard, sea level projections |
+| [transportation-emissions.md](transportation-emissions.md) | Vehicle emissions, NEI, MOVES, FHWA VMT, SmartWay |
