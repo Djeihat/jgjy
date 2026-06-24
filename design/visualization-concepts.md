@@ -2,71 +2,138 @@
 
 ---
 
-## Map-Based (Core Layer)
+## Core Visual Identity: Literal 3D Symbol Clusters
 
-- **Choropleth map** — color census tracts by intensity of a single metric
-  (waste per capita, air quality index, etc.). Simple and familiar but can
-  mislead if metrics aren't normalized well. Good baseline layer.
-- **Proportional symbol map** — circles or hexagons scaled by volume placed
-  on a base map. Good for showing absolute quantities (tons of waste generated)
-  alongside geographic context.
-- **Bivariate choropleth** — colors two variables simultaneously (e.g., waste
-  output AND income level) using a 2D color grid. Immediately surfaces the
-  environmental justice story without requiring the user to toggle between
-  layers.
+The central visual metaphor is a **cluster of literal, representational 3D
+symbols** rising from each census tract — a community "skyline" that tells the
+story of what's happening there at a glance. No data literacy required.
 
-## Flow Visualization
+### The Cluster as a Community Fingerprint
+Every community gets a different skyline depending on its mix of inputs,
+outputs, and investments. The shape and composition of the cluster tells you
+*what kind* of place it is, not just how good or bad it is:
+- An industrial zone: smokestacks, barrels, trash heaps
+- A dense residential neighborhood: trash heaps, water tanks
+- A community investing in sustainability: solar panels, wind turbines,
+  recycling facilities, trees
 
-- **Sankey / MetaFlow diagrams** — shows inputs, transformations, and outputs
-  as proportional flows. Standard visualization for urban metabolism (see
-  Gemini analysis). Could live in a side panel that updates as the user clicks
-  different areas on the map.
-- **Arc / flow map** — curved lines between origin and destination, scaled by
-  volume. Great for showing where waste *goes* — which landfills receive from
-  which communities, or which ports supply which regions. Deck.gl has a
-  built-in arc layer well-suited for this.
+**Negative space matters too** — a community with few problems should look
+visibly sparse and open. The contrast between a clean area and a heavily
+burdened one does the emotional work without a single number on screen.
 
-## Time-Based
+### This Is Not a Shame Map
+The project visualizes the **complete picture** — both what communities are
+doing wrong *and* what they're doing right. Communities with strong recycling
+infrastructure, renewable energy, urban composting, clean waterways, and green
+space should have that reflected just as prominently as their problems.
 
-- **Animated time slider** — scrub through years to show how a community's
-  waste profile has changed. Powerful for showing trends but requires
-  consistent historical data across time periods.
-- **Small multiples** — a grid of the same map at different time points or for
-  different metrics. Good for editorial/journalism contexts where you want to
-  show change without animation.
+This reframes the civic engagement tone: instead of "look how bad your
+community is," it becomes "here's the full picture — here's what's working,
+here's what isn't." That's more honest, more useful, and much harder to dismiss.
 
-## Comparative
+---
 
-- **Radar / spider chart** — plot a community across multiple dimensions
-  (waste, air quality, energy, water) simultaneously. Good for a community
-  "profile" view in a sidebar.
-- **Diverging bar chart** — show how a community compares to regional or
-  national average across metrics. Immediately answers "are we better or worse
-  than average?"
+## Symbol System
 
-## Experimental / High Impact
+### Negative Symbols (problems / burdens)
+| Symbol | Data It Represents |
+|--------|-------------------|
+| Trash heap / bag | Municipal solid waste generation |
+| Smokestack (tall, billowing) | Industrial emissions, fossil fuel energy |
+| Barrel | Toxic / chemical waste (TRI data) |
+| Sewage tank | Wastewater volume |
+| Dead fish / murky water | Poor water quality |
+| Barren land patch | Low green space / urban heat |
 
-- **3D extruded map** — raise census tracts vertically proportional to a
-  metric (waste volume, emissions). Dramatic and attention-grabbing. Libraries
-  like Deck.gl or Mapbox GL handle this well.
-- **Scrollytelling** — journalistic format where the map and charts animate as
-  the user scrolls through a narrative. High production cost but extremely
-  effective for civic engagement. Think NYT climate features.
-- **Community metabolism diagram** — a node-and-edge graph showing a
-  community's full input/output system: energy in, goods in, waste out, water
-  recycled, etc. More of an explainer view than an exploratory one.
+### Positive Symbols (investments / strengths)
+| Symbol | Data It Represents |
+|--------|-------------------|
+| Wind turbine | Renewable energy generation |
+| Solar panel array | Renewable energy generation |
+| Recycling facility | High waste diversion rates |
+| Compost bin | Municipal composting programs |
+| Tree / green canopy | Urban forest coverage |
+| Clean water droplet | Waterways meeting quality standards |
+| Community garden | Urban agriculture / local food systems |
+| Transit symbol | Low per-capita transportation emissions |
+| Repair / reuse center | Circular economy infrastructure |
+
+### Symbol Design Principles
+- **Stylized / illustrative** rather than photorealistic — cleaner at small
+  sizes, faster to render, gives the project a distinct visual identity
+- **Scale exaggeration** — vertical axis must be exaggerated so differences
+  are immediately readable at map scale. A community with twice the waste
+  should look dramatically taller, not subtly taller.
+- **Animated potential** — literal symbols open up time-based animation:
+  a trash bag that fills up, a smokestack that billows more, solar panels
+  that multiply. Much more evocative than an abstract hexagon changing color.
+
+---
+
+## Zoom Behavior (Three Levels of Detail)
+
+1. **National / regional view** — density and height of clusters. You can see
+   problem hotspots and clean areas at a glance. Individual symbol types are
+   not yet distinguishable.
+2. **City view** — individual symbol types become distinguishable. You can see
+   a neighborhood's mix of positive and negative symbols.
+3. **Census tract view** — full breakdown with labels, counts, and data
+   sourcing. Click to expand a sidebar with charts and Sankey diagrams.
+
+---
+
+## The "Before and After" Story (Time Slider)
+Watching a cluster change over time is potentially the most powerful feature:
+- Smokestacks disappearing as a city transitions off coal
+- Solar panels multiplying as renewable adoption grows
+- A trash heap shrinking as a recycling program takes effect
+
+The cluster becoming visibly cleaner — or denser — over years tells a story
+no static chart can match.
+
+---
+
+## Supporting Visualizations (Sidebar / Detail View)
+
+- **Sankey / MetaFlow diagram** — shows inputs, transformations, and outputs
+  as proportional flows for the selected census tract. Standard visualization
+  for urban metabolism. Updates on click.
+- **Radar / spider chart** — community profile across multiple dimensions
+  (waste, air quality, energy, water, green space) simultaneously.
+- **Diverging bar chart** — how this community compares to the regional and
+  national average. Immediately answers "are we better or worse than average?"
+- **Arc / flow map** — curved lines showing where waste goes and where inputs
+  come from. Deck.gl arc layer.
+- **Animated time slider** — scrub through years to show how the community's
+  profile has changed.
+
+---
+
+## Other Map Approaches (for consideration)
+
+- **Choropleth map** — color census tracts by a single metric. Good baseline
+  layer behind the symbol clusters.
+- **Bivariate choropleth** — color two variables simultaneously (e.g., waste
+  output AND income). Surfaces the environmental justice story without
+  requiring layer toggles.
+- **Scrollytelling** — journalistic narrative format where map and charts
+  animate as the user scrolls. High production cost but extremely effective
+  for civic engagement.
+- **Small multiples** — grid of the same map at different time points or
+  metrics. Good for editorial/journalism output.
 
 ---
 
 ## Recommended Starting Point
 
-**Choropleth base map + click-to-expand Sankey sidebar.**
+**Choropleth base map + 3D literal symbol clusters + click-to-expand Sankey
+sidebar.**
 
-- Achievable with existing open-source tools
-- Immediately communicates the input/output concept
-- Gives a foundation to layer more ambitious visualizations on top of
-- Sankey diagram in the sidebar updates per census tract on click, showing
-  that area's material flow profile
+- Choropleth provides immediate geographic context
+- Symbol clusters communicate the full positive/negative picture at a glance
+- Sankey sidebar gives the detail for users who want to go deeper
+- Achievable with existing open-source tools before adding animation or
+  time-slider complexity
 
 ---
 
@@ -74,8 +141,9 @@
 
 | Tool | Best For |
 |------|----------|
-| Deck.gl | Arc/flow maps, 3D extrusion, high-performance rendering |
+| Deck.gl | 3D symbols, arc/flow maps, high-performance rendering |
 | Mapbox GL JS | Choropleth, base map styling, smooth interactions |
+| Three.js | Custom 3D symbol rendering |
 | D3.js | Sankey diagrams, radar charts, custom data viz |
 | Observable Plot | Quick exploratory charts, small multiples |
 | Leaflet | Lightweight choropleth if Mapbox licensing is a concern |
