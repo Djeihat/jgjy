@@ -81,6 +81,47 @@ geographic resolution, no IoT infrastructure required.
   sidesteps CPRA liability. This mirrors the approach used by CoolClimate
   (UC Berkeley).
 
+## Gaps and Overlooked Factors
+
+### Data Gaps
+- **The "last mile" problem** — port-level import data shows what enters the
+  country, but connecting that to what ends up in a specific neighborhood
+  requires bridging federal trade data with local consumption patterns. No
+  single dataset does this cleanly. Likely the biggest modeling challenge.
+- **Informal and illegal dumping** — a meaningful portion of waste in many
+  communities never enters official reporting. The map will systematically
+  underrepresent waste in areas with less municipal infrastructure.
+- **Waste that leaves the country** — the US exports significant recyclables
+  and e-waste abroad (historically China, now Southeast Asia). This outflow
+  is largely invisible in domestic waste reporting but is a major part of the
+  actual material story.
+
+### Product Lifecycle Complexity
+- A product imported through the Port of Seattle might be consumed in Phoenix.
+  The geographic link between import location and waste generation is loose.
+  Need a clear methodology for attributing embodied waste to communities vs.
+  ports of entry.
+
+### Stakeholders Worth Engaging Early
+- **Municipal waste haulers** (Waste Management, Republic Services) — private
+  companies that handle most US residential waste collection and hold data
+  unavailable through any public API. Partnership or data licensing could
+  unlock significant granularity.
+- **Environmental justice orgs** — have been mapping this problem for years,
+  often at the neighborhood level, with ground-truth data and community trust
+  that no API provides.
+
+### Strategic Questions Still Open
+- **Who is the primary user?** A journalist, city planner, and concerned
+  resident need very different interfaces and detail levels. Picking one
+  persona early will drive most product decisions.
+- **What update cadence actually matters?** Annual data may be enough to tell
+  a compelling story — worth pressure-testing whether "near real-time" is a
+  genuine user need or just an appealing feature.
+- **Project sustainability model** — nonprofit, media org, or commercial
+  product? This determines funding, data licensing options, and capacity to
+  clean messy government datasets.
+
 ## Open Questions / Things to Resolve Later
 - Data availability: waste/disposal data (EPA TRI, LMOP, state agencies) is
   more accessible than "what comes in" / consumption data — likely the
