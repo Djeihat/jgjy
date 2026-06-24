@@ -3,6 +3,8 @@
 Collaborators: Jay Yamakawa, Justin Garofoli
 Status: Initial discovery / brainstorming
 
+---
+
 ## Core Concept
 
 Look at the input/output of geographic areas — what materials are brought in,
@@ -11,9 +13,11 @@ huge regions (e.g., Pacific Northwest) down to an individual household.
 
 Original idea: an interactive, real-time(ish) map showing this flow data.
 
+---
+
 ## Idea Threads
 
-### 1. Investigative-journalism / civic-engagement angle (Justin, 2026-06-XX)
+### 1. Investigative-journalism / civic-engagement angle (Justin)
 - For every community: main inputs/outputs, where materials come from and go,
   how much waste of what type, and what's done with it.
 - A deeply connected, real-time (to the extent data allows) map that goes deep
@@ -34,79 +38,7 @@ Original idea: an interactive, real-time(ish) map showing this flow data.
 - This is arguably a *different product* (real estate / personal finance
   audience) than the civic-engagement angle, but could share a data layer.
 
-## Data Sources
-
-### Port Import/Export Data
-**Free / Government**
-- **USA Trade Online** (usatrade.census.gov) — Monthly import/export by
-  commodity (HS code), port of entry, and country of origin. Free with
-  registration. Good starting point for state and port-level aggregation.
-- **Bureau of Transportation Statistics — Freight Analysis Framework (FAF)**
-  — Models commodity flows between regions by mode (ship, rail, truck, air).
-- **US Customs Inbound Ocean Manifests** — Technically public domain via FOIA,
-  but raw feed costs ~$100/day from CBP directly (what commercial providers
-  resell).
-- **USDA Foreign Agricultural Service — GATS** (apps.fas.usda.gov/gats) —
-  Import/export data for food and agricultural commodities. Free public access
-  with a free API; query by commodity, country, and date range.
-
-**Low-Cost / Freemium**
-- **UN Comtrade** (comtrade.un.org) — Annual country-level trade data by
-  commodity. Free tier has API rate limits; bulk access requires subscription.
-  Good for macro-level input modeling.
-- **MIT Observatory of Economic Complexity** (oec.world) — Built on Comtrade
-  data, much more accessible UI and API. Good for visualizing flows.
-
-**Commercial (expensive)**
-- **Panjiva / S&P Global** — Bill of lading data at shipment level. Enterprise
-  pricing, likely $10k+/year.
-- **ImportGenius, Descartes Datamyne** — Similar, ~$2,700–$11,000/year.
-
-**Recommended starting point:** USA Trade Online + BTS FAF — free, port-level
-geographic resolution, no IoT infrastructure required.
-
-### Sewage / Wastewater Data
-**Free / Government**
-- **EPA ECHO Database** (echo.epa.gov) — facilities with NPDES permits
-  (all municipal wastewater treatment plants) report monthly discharge volumes.
-  Free API with facility lat/long, meaning it maps directly into a geographic
-  visualization layer with minimal transformation. Most granular and regularly
-  updated source.
-- **EPA Clean Watersheds Needs Survey (CWNS)** — tracks capacity and flow of
-  publicly owned treatment works (POTWs) nationwide. Conducted every 4 years;
-  includes volume processed by facility and state.
-- **USGS Water Use Data** — water use estimates every 5 years by county,
-  including public supply and wastewater return flows. Free, county-level
-  geographic resolution.
-
-**Context:** EPA estimates the US processes ~34 billion gallons of wastewater
-per day across ~16,000 treatment plants. ECHO breaks this down by facility.
-
-### Power Plants and Energy Fuel Data
-**Free / Government**
-- **EPA eGRID** — gold standard for power plant data. Covers every
-  grid-connected plant in the US: fuel type, generation capacity, annual
-  output, and emissions (CO2, NOx, SO2, methane). Updated annually; free API
-  and downloadable flat files. Includes plant-level lat/long — maps directly
-  onto a geographic visualization layer.
-- **EPA CAMPD (Clean Air Markets)** — hourly emissions data from large power
-  plants under the Acid Rain Program. More granular than eGRID for emissions
-  tracking. Free API via EPA's CAMPD portal.
-- **EIA (Energy Information Administration)** (api.eia.gov) — most
-  comprehensive energy data source in the US government. Well-documented free
-  API with reliable uptime and consistent schemas. Key datasets:
-  - **EIA-860** — annual survey of every power plant: location, capacity, fuel
-    type, ownership
-  - **EIA-923** — monthly fuel consumption and electricity generation by plant
-  - **EIA-861** — electric utility sales, revenue, and customer counts by
-    state/utility
-- **USGS Mineral Resources Data** — tracks fuel extraction (coal mines,
-  natural gas wells) at the source; useful for the inputs side of the story.
-
-**Why this is valuable for the project:** EIA and eGRID both include plant-level
-lat/long, so they map directly. You can show not just how much power a
-community consumes, but where it's generated, what fuel it burns, and what it
-emits — closing the loop between consumption and environmental cost visually.
+---
 
 ## Research Questions to Answer
 1. How much of the average product ends up as waste in some way? Broken down
@@ -116,13 +48,7 @@ emits — closing the loop between consumption and environmental cost visually.
 4. Where do we get information and data about how each
    community/neighborhood/city/state/country handles their waste?
 
-## Decisions Made
-- **Household granularity:** Real-time, household-level tracking is off the
-  table (requires expensive IoT/RFID infrastructure and creates privacy/legal
-  exposure). Instead, generalize at the household level — aggregate data to
-  census tract or neighborhood scale, which is sufficient for civic impact and
-  sidesteps CPRA liability. This mirrors the approach used by CoolClimate
-  (UC Berkeley).
+---
 
 ## Gaps and Overlooked Factors
 
@@ -165,10 +91,9 @@ emits — closing the loop between consumption and environmental cost visually.
   product? This determines funding, data licensing options, and capacity to
   clean messy government datasets.
 
+---
+
 ## Open Questions / Things to Resolve Later
-- Data availability: waste/disposal data (EPA TRI, LMOP, state agencies) is
-  more accessible than "what comes in" / consumption data — likely the
-  tractable starting point.
 - Which audience to prioritize first: investigative-journalism/civic, or
   real-estate/valuation?
 - What's the smallest data slice that proves the concept (one dataset, one
@@ -176,8 +101,9 @@ emits — closing the loop between consumption and environmental cost visually.
 - Eventually: turn this into an actual plan (data sources, prototype scope,
   platform/stack).
 
+---
+
 ## Next Steps
 - [ ] Keep logging new ideas/conversation excerpts here as they come up
-- [ ] Identify candidate data sources for a first prototype
 - [ ] Pick one angle (civic vs. valuation) to prototype first
 - [ ] Draft a scoped MVP plan
