@@ -4,17 +4,24 @@
 
 ## Free / Government
 
-- **US Census Bureau — American Community Survey (ACS)** (api.census.gov) —
-  annual estimates of population, household size, income, and demographics down
-  to the census tract level. Free API. Primary source given the census tract
-  granularity targeted by this project.
+- **US Census Bureau — American Community Survey (ACS)** — annual estimates of
+  population, household size, income, and demographics down to the census tract
+  level. Free API. Primary source given the census tract granularity targeted
+  by this project.
+  - ACS 5-Year API: https://www.census.gov/data/developers/data-sets/acs-5year.html
+  - Free API key signup: https://api.census.gov/data/key_signup.html
 - **Census TIGER/Line Shapefiles** — geographic boundary files that correspond
-  to Census data. Essential for rendering census tracts on a map.
-- **CDC Social Vulnerability Index (SVI)** — combines Census data into a
+  to Census data. Essential for rendering census tracts on a map. For web
+  rendering, the simplified Cartographic Boundary files are usually preferable.
+  - TIGER/Line: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+  - Cartographic Boundary (simplified): https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
+- **CDC/ATSDR Social Vulnerability Index (SVI)** — combines Census data into a
   composite score of community vulnerability. Useful context layer, especially
   for the environmental justice angle.
+  - Portal + downloads: https://www.atsdr.cdc.gov/placeandhealth/svi/index.html
 - **NASA SEDAC (Socioeconomic Data and Applications Center)** — global
   population density grids. Useful if the project expands beyond the US.
+  - Portal: https://sedac.ciesin.columbia.edu/
 
 ---
 
