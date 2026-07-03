@@ -1,0 +1,252 @@
+{
+ "Baker": {
+  "tons_disposed": 14070.9,
+  "tons_recovered": 3187.4,
+  "tons_generated": 17258.3,
+  "recovery_rate": 0.1847,
+  "population": 17148
+ },
+ "Benton": {
+  "tons_disposed": 71810.8,
+  "tons_recovered": 32968.4,
+  "tons_generated": 104779.2,
+  "recovery_rate": 0.3146,
+  "population": 86374
+ },
+ "Clatsop": {
+  "tons_disposed": 41703.2,
+  "tons_recovered": 20091.3,
+  "tons_generated": 61794.6,
+  "recovery_rate": 0.3251,
+  "population": 41971
+ },
+ "Columbia": {
+  "tons_disposed": 32798.3,
+  "tons_recovered": 9341.3,
+  "tons_generated": 42139.6,
+  "recovery_rate": 0.2217,
+  "population": 53156
+ },
+ "Coos": {
+  "tons_disposed": 58990.6,
+  "tons_recovered": 18082.0,
+  "tons_generated": 77072.6,
+  "recovery_rate": 0.2346,
+  "population": 65112
+ },
+ "Crook": {
+  "tons_disposed": 27786.2,
+  "tons_recovered": 11310.9,
+  "tons_generated": 39097.1,
+  "recovery_rate": 0.2893,
+  "population": 26162
+ },
+ "Curry": {
+  "tons_disposed": 22099.4,
+  "tons_recovered": 5936.2,
+  "tons_generated": 28035.6,
+  "recovery_rate": 0.2117,
+  "population": 23897
+ },
+ "Deschutes": {
+  "tons_disposed": 225929.3,
+  "tons_recovered": 84413.0,
+  "tons_generated": 310342.4,
+  "recovery_rate": 0.272,
+  "population": 207561
+ },
+ "Douglas": {
+  "tons_disposed": 103451.3,
+  "tons_recovered": 25416.1,
+  "tons_generated": 128867.4,
+  "recovery_rate": 0.1972,
+  "population": 111716
+ },
+ "Gilliam": {
+  "tons_disposed": 2919.7,
+  "tons_recovered": 763.2,
+  "tons_generated": 3682.9,
+  "recovery_rate": 0.2072,
+  "population": 2071
+ },
+ "Grant": {
+  "tons_disposed": 4698.7,
+  "tons_recovered": 978.8,
+  "tons_generated": 5677.5,
+  "recovery_rate": 0.1724,
+  "population": 7337
+ },
+ "Harney": {
+  "tons_disposed": 4883.9,
+  "tons_recovered": 1010.3,
+  "tons_generated": 5894.2,
+  "recovery_rate": 0.1714,
+  "population": 7640
+ },
+ "Hood River": {
+  "tons_disposed": 25932.4,
+  "tons_recovered": 9033.1,
+  "tons_generated": 34965.5,
+  "recovery_rate": 0.2583,
+  "population": 23894
+ },
+ "Jackson": {
+  "tons_disposed": 229268.3,
+  "tons_recovered": 111201.4,
+  "tons_generated": 340469.7,
+  "recovery_rate": 0.3266,
+  "population": 224013
+ },
+ "Jefferson": {
+  "tons_disposed": 20838.1,
+  "tons_recovered": 6625.1,
+  "tons_generated": 27463.2,
+  "recovery_rate": 0.2412,
+  "population": 25404
+ },
+ "Josephine": {
+  "tons_disposed": 85396.2,
+  "tons_recovered": 34186.5,
+  "tons_generated": 119582.7,
+  "recovery_rate": 0.2859,
+  "population": 88695
+ },
+ "Klamath": {
+  "tons_disposed": 75473.5,
+  "tons_recovered": 20070.8,
+  "tons_generated": 95544.3,
+  "recovery_rate": 0.2101,
+  "population": 70848
+ },
+ "Lake": {
+  "tons_disposed": 5807.1,
+  "tons_recovered": 629.6,
+  "tons_generated": 6436.7,
+  "recovery_rate": 0.0978,
+  "population": 8246
+ },
+ "Lane": {
+  "tons_disposed": 284398.6,
+  "tons_recovered": 319447.4,
+  "tons_generated": 603846.0,
+  "recovery_rate": 0.529,
+  "population": 383958
+ },
+ "Lincoln": {
+  "tons_disposed": 45509.3,
+  "tons_recovered": 20328.1,
+  "tons_generated": 65837.4,
+  "recovery_rate": 0.3088,
+  "population": 51090
+ },
+ "Linn": {
+  "tons_disposed": 108287.2,
+  "tons_recovered": 85953.4,
+  "tons_generated": 194240.6,
+  "recovery_rate": 0.4425,
+  "population": 140678
+ },
+ "Malheur": {
+  "tons_disposed": 24852.3,
+  "tons_recovered": 6640.9,
+  "tons_generated": 31493.2,
+  "recovery_rate": 0.2109,
+  "population": 32095
+ },
+ "Marion2": {
+  "tons_disposed": 333430.6,
+  "tons_recovered": 291952.3,
+  "tons_generated": 625382.8,
+  "recovery_rate": 0.4668
+ },
+ "Metro": {
+  "tons_disposed": 1457079.4,
+  "tons_recovered": 1139010.0,
+  "tons_generated": 2596089.4,
+  "recovery_rate": 0.4387,
+  "population": 1849881
+ },
+ "Milton Freewater": {
+  "tons_disposed": 5395.0,
+  "tons_recovered": 1276.4,
+  "tons_generated": 6671.5,
+  "recovery_rate": 0.1913,
+  "population": 8040
+ },
+ "Morrow": {
+  "tons_disposed": 23151.8,
+  "tons_recovered": 4921.7,
+  "tons_generated": 28073.5,
+  "recovery_rate": 0.1753,
+  "population": 12315
+ },
+ "Polk": {
+  "tons_disposed": 55725.5,
+  "tons_recovered": 34935.0,
+  "tons_generated": 90660.4,
+  "recovery_rate": 0.3853,
+  "population": 89672
+ },
+ "Sherman": {
+  "tons_disposed": 1297.6,
+  "tons_recovered": 396.0,
+  "tons_generated": 1693.5,
+  "recovery_rate": 0.2338,
+  "population": 1938
+ },
+ "Tillamook": {
+  "tons_disposed": 32496.0,
+  "tons_recovered": 12237.8,
+  "tons_generated": 44733.9,
+  "recovery_rate": 0.2736,
+  "population": 27868
+ },
+ "Umatilla": {
+  "tons_disposed": 96225.3,
+  "tons_recovered": 24806.0,
+  "tons_generated": 121031.2,
+  "recovery_rate": 0.205,
+  "population": 72361
+ },
+ "Union": {
+  "tons_disposed": 20956.1,
+  "tons_recovered": 7864.4,
+  "tons_generated": 28820.5,
+  "recovery_rate": 0.2729,
+  "population": 26673
+ },
+ "Wallowa": {
+  "tons_disposed": 5092.6,
+  "tons_recovered": 1683.4,
+  "tons_generated": 6776.0,
+  "recovery_rate": 0.2484,
+  "population": 7541
+ },
+ "Wasco": {
+  "tons_disposed": 22400.9,
+  "tons_recovered": 6923.8,
+  "tons_generated": 29324.7,
+  "recovery_rate": 0.2361,
+  "population": 26794
+ },
+ "Wheeler": {
+  "tons_disposed": 461.2,
+  "tons_recovered": 87.7,
+  "tons_generated": 548.9,
+  "recovery_rate": 0.1597,
+  "population": 1436
+ },
+ "Yamhill": {
+  "tons_disposed": 120328.7,
+  "tons_recovered": 47100.0,
+  "tons_generated": 167428.7,
+  "recovery_rate": 0.2813,
+  "population": 109914
+ },
+ "OR Totals": {
+  "tons_disposed": 3690945.9,
+  "tons_recovered": 2400809.7,
+  "tons_generated": 6091755.5,
+  "recovery_rate": 0.3941
+ }
+}
