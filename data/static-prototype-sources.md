@@ -14,12 +14,21 @@ Processed, clipped GeoJSON will be committed to `data/processed/` once built.
 | EPA ECHO (OR) | `raw/echo_or_major_dischargers.csv` | 73 active major Clean Water Act dischargers: name, permit, NAICS, lat/long, design flow (MGD) | ECHO CWA REST services, query: state=OR, active=Y, major=Y |
 | Census ACS 5-Year 2023 (OR) | `raw/or_acs_population_2023.json` | Total population (B01003_001E) for all 1,001 Oregon census tracts | `https://api.census.gov/data/2023/acs/acs5?get=NAME,B01003_001E&for=tract:*&in=state:41&key=KEY` (free key required; Jay has one) |
 
-## Not yet sourced
+## Oregon DEQ waste data ✅
 
-- **Oregon MSW / waste tonnage** — Oregon DEQ publishes annual Material
-  Recovery and Waste Generation reports (county-level tonnage + recovery
-  rates). Manual download from https://www.oregon.gov/deq — needs a look to
-  pick the right report/year.
+| Dataset | File | Contents |
+|---------|------|----------|
+| 2022 Material Recovery & Waste Generation Rates Report | `raw/or_deq_mrwg_2022.pdf` | Narrative report (30th annual survey; published May 2024; most recent as of Jul 2026) |
+| 2022 data tables | `raw/or_deq_rec_tables_2022.xlsx` | Tables 1–9: tonnage disposed/recovered by wasteshed, recovery rates, per-capita figures |
+| Wasteshed reference | `raw/or_deq_wastesheds.pdf` | Definitions/boundaries of Oregon's wastesheds (mostly counties; Portland metro separate) |
+
+Source page: https://www.oregon.gov/deq/recycling/Pages/Survey.aspx
+2022 statewide headline numbers: 6,091,756 tons generated; 3,690,946 disposed;
+2,400,810 recovered; 39.4% recovery rate.
+
+**Note:** DEQ waste data is by *wasteshed* (≈county), not census tract — one
+more instance of the "last mile" attribution challenge. Population-weighted
+downscaling to tracts is the likely approach.
 
 ## Re-download notes
 
