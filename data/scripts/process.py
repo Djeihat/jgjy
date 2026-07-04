@@ -152,7 +152,8 @@ def wasteshed_waste():
         name, disposed, recovered, generated, rate = row[0], row[1], row[2], row[3], row[4]
         if not name or not isinstance(disposed, (int, float)):
             continue
-        out[str(name).strip()] = {
+        name = str(name).strip().rstrip("0123456789")  # drop footnote markers
+        out[name.strip()] = {
             "tons_disposed": round(disposed, 1),
             "tons_recovered": round(recovered, 1),
             "tons_generated": round(generated, 1),
