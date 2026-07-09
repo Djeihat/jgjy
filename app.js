@@ -32,6 +32,12 @@ const FACILITY_TYPES = {
   tri: {
     color: "#8e44ad",
     label: "Industrial releases",
+    // magnitude summed per cluster so a cluster's SIZE reflects total releases
+    magProp: "total_releases_lbs",
+    magUnit: "lbs",
+    // cluster radius scales with summed releases (sqrt → area-proportional)
+    clusterRadius: ["interpolate", ["linear"],
+      ["sqrt", ["max", ["get", "magSum"], 0]], 0, 12, 3000, 40],
     // individual point radius scales with releases
     radius: ["interpolate", ["linear"],
       ["sqrt", ["max", ["get", "total_releases_lbs"], 1]], 0, 4, 1500, 18],
@@ -46,6 +52,10 @@ const FACILITY_TYPES = {
   power: {
     color: "#27ae60",
     label: "Power plants",
+    magProp: "capacity_mw",
+    magUnit: "MW",
+    clusterRadius: ["interpolate", ["linear"],
+      ["sqrt", ["max", ["get", "magSum"], 0]], 0, 12, 60, 40],
     radius: ["interpolate", ["linear"],
       ["sqrt", ["max", ["coalesce", ["get", "capacity_mw"], 1], 1]], 0, 4, 30, 14],
     pointColor: ["match", ["get", "fuel_category"],
@@ -59,6 +69,10 @@ const FACILITY_TYPES = {
   water: {
     color: "#2980b9",
     label: "Wastewater facilities",
+    magProp: "design_flow_mgd",
+    magUnit: "MGD",
+    clusterRadius: ["interpolate", ["linear"],
+      ["sqrt", ["max", ["get", "magSum"], 0]], 0, 12, 20, 40],
     radius: ["interpolate", ["linear"],
       ["coalesce", ["get", "design_flow_mgd"], 1], 0, 4, 100, 16],
     pointColor: "#2980b9",
@@ -138,6 +152,10 @@ map.on("load", async () => {
       cluster: true,
       clusterRadius: 44,
       clusterMaxZoom: 12,
+      // sum each cluster's total magnitude (releases / capacity / flow)
+      clusterProperties: {
+        magSum: ["+", ["coalesce", ["get", cfg.magProp], 0]],
+      },
     });
 
     // cluster bubbles, sized by how many facilities they contain
@@ -151,7 +169,8 @@ map.on("load", async () => {
         "circle-opacity": 0.85,
         "circle-stroke-color": "#fff",
         "circle-stroke-width": ["case", ["boolean", ["feature-state", "hover"], false], 3, 1],
-        "circle-radius": ["step", ["get", "point_count"], 13, 5, 18, 15, 24, 40, 32],
+        // size reflects total magnitude in the cluster, not the facility count
+        "circle-radius": cfg.clusterRadius,
       },
     });
     // count label on clusters
@@ -201,13 +220,14 @@ map.on("load", async () => {
         map.setFeatureState({ source: src, id }, { hover: true });
       }
       const count = f.properties.point_count;
+      const total = `${fmt(f.properties.magSum)} ${cfg.magUnit}`;
       const coords = f.geometry.coordinates;
       map.getSource(src).getClusterLeaves(id, 12, 0).then((leaves) => {
         if (hovered !== id) return; // moved off before it resolved
         const items = leaves.map((l) => `<li>${cfg.leafName(l.properties)}</li>`).join("");
         const more = count > leaves.length ? `<li>…and ${count - leaves.length} more</li>` : "";
         hoverPopup.setLngLat(coords)
-          .setHTML(`<h4>${count} ${cfg.label.toLowerCase()}</h4>
+          .setHTML(`<h4>${count} ${cfg.label.toLowerCase()} · ${total} total</h4>
             <ul style="margin:4px 0 0;padding-left:16px">${items}${more}</ul>`)
           .addTo(map);
       });
