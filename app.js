@@ -25,6 +25,18 @@ map.addControl(new maplibregl.NavigationControl(), "bottom-right");
 
 const fmt = (n) => n == null ? "—" : Math.round(n).toLocaleString();
 
+// Opacity that depends on both zoom and a feature's magnitude: when zoomed
+// out, small symbols fade toward invisible so the map stays legible; by the
+// time you're zoomed into a city, everything is at full opacity. `magExpr` is
+// a MapLibre expression for the feature's size metric; `full` is the value at
+// which a symbol is fully opaque even when zoomed all the way out.
+const zoomFadeOpacity = (magExpr, full, maxOpacity = 0.75) => [
+  "interpolate", ["linear"], ["zoom"],
+  6, ["interpolate", ["linear"], magExpr, 0, 0.04, full, maxOpacity],
+  9, ["interpolate", ["linear"], magExpr, 0, 0.3, full, maxOpacity],
+  11, maxOpacity,
+];
+
 map.on("load", async () => {
   const [tracts, wastesheds, tri, power, water] = await Promise.all([
     fetch("data/processed/tracts_population.geojson").then(r => r.json()),
@@ -76,7 +88,8 @@ map.on("load", async () => {
     source: "fac-tri",
     paint: {
       "circle-color": "#8e44ad",
-      "circle-opacity": 0.75,
+      "circle-opacity": zoomFadeOpacity(
+        ["sqrt", ["max", ["get", "total_releases_lbs"], 0]], 500),
       "circle-stroke-color": "#fff",
       "circle-stroke-width": 0.5,
       "circle-radius": ["interpolate", ["linear"],
@@ -94,7 +107,8 @@ map.on("load", async () => {
       "circle-color": ["match", ["get", "fuel_category"],
         ["SOLAR", "WIND", "HYDRO", "GEOTHERMAL", "BIOMASS"], "#27ae60",
         "#7f8c8d"],
-      "circle-opacity": 0.75,
+      "circle-opacity": zoomFadeOpacity(
+        ["sqrt", ["max", ["coalesce", ["get", "capacity_mw"], 0], 0]], 5),
       "circle-stroke-color": "#fff",
       "circle-stroke-width": 0.5,
       "circle-radius": ["interpolate", ["linear"],
@@ -110,7 +124,8 @@ map.on("load", async () => {
     source: "fac-water",
     paint: {
       "circle-color": "#2980b9",
-      "circle-opacity": 0.75,
+      "circle-opacity": zoomFadeOpacity(
+        ["coalesce", ["get", "design_flow_mgd"], 0], 30),
       "circle-stroke-color": "#fff",
       "circle-stroke-width": 0.5,
       "circle-radius": ["interpolate", ["linear"],
