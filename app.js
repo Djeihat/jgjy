@@ -30,10 +30,10 @@ const fmt = (n) => n == null ? "—" : Math.round(n).toLocaleString();
 // time you're zoomed into a city, everything is at full opacity. `magExpr` is
 // a MapLibre expression for the feature's size metric; `full` is the value at
 // which a symbol is fully opaque even when zoomed all the way out.
-const zoomFadeOpacity = (magExpr, full, maxOpacity = 0.75) => [
+const zoomFadeOpacity = (magExpr, full, maxOpacity = 0.8) => [
   "interpolate", ["linear"], ["zoom"],
-  6, ["interpolate", ["linear"], magExpr, 0, 0.04, full, maxOpacity],
-  9, ["interpolate", ["linear"], magExpr, 0, 0.3, full, maxOpacity],
+  6.5, ["interpolate", ["linear"], magExpr, 0, 0, full, maxOpacity],
+  9, ["interpolate", ["linear"], magExpr, 0, 0.15, full, maxOpacity],
   11, maxOpacity,
 ];
 
@@ -108,7 +108,7 @@ map.on("load", async () => {
         ["SOLAR", "WIND", "HYDRO", "GEOTHERMAL", "BIOMASS"], "#27ae60",
         "#7f8c8d"],
       "circle-opacity": zoomFadeOpacity(
-        ["sqrt", ["max", ["coalesce", ["get", "capacity_mw"], 0], 0]], 5),
+        ["sqrt", ["max", ["coalesce", ["get", "capacity_mw"], 0], 0]], 9),
       "circle-stroke-color": "#fff",
       "circle-stroke-width": 0.5,
       "circle-radius": ["interpolate", ["linear"],
